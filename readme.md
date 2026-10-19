@@ -43,7 +43,7 @@ Tässä tehtävässä tarkoituksesi on ladata tämä Git-repositorio omalle kone
 
 ### Repositorion kloonaaminen
 
-Aloita kloonaamalla tämä Git-repositorio omalle koneellesi. Oman kopiosi saat tekemällä tästä repositoriosta forkin tai kopion omalle GitHub-tilillesi.
+Forkkaa ensin tämä repositorio omaan GitHub-repositorioosi GitHubin **Fork**-painikkeella ja kloonaa vasta sitten oma forkkisi omalle koneellesi:
 
 ```sh
 git clone https://github.com/<oma-github-tunnus>/<repositorion-nimi>.git

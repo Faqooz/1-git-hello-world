@@ -41,7 +41,7 @@ In this task, your goal is to download this Git repository to your computer, mak
 
 Open the Git Bash application. In Git Bash, like in other command-line tools, commands operate based on the active directory in the application. By default, the active directory is your home directory (`C:\Users\<yourusername>\` on Windows). The `pwd` command will display the current directory you are in (type in the command and press Enter). We can use the [cd](https://en.wikipedia.org/wiki/Cd_(command)) command to switch to other directories. But, we can have our exercise repository directories in the home directory.
 
-Start by cloning this Git repository to your computer. Create your own copy by forking or copying this repository to your own GitHub account.
+First fork this repository into your own GitHub repository with GitHub's **Fork** button, and only then clone your fork to your computer:
 
 ```sh
 git clone https://github.com/<your-github-username>/<repository-name>.git
