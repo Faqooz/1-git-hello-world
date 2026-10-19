@@ -140,6 +140,4 @@ Tehtävän toteutuksessa on hyödynnetty ChatGPT 3.5 -kielimallia sekä GitHub c
 
 ## Ratkaisun tallentaminen
 
-Tee tästä tehtäväpohjasta oma kopio (fork tai kopio) ja tallenna ratkaisusi myös **yksityiseen (private) GitHub-repositorioon omalla GitHub-tililläsi**. Älä julkaise ratkaisuasi julkisessa repositoriossa.
-
-Palauta ratkaisusi opettajan ilmoittamaan palautusjärjestelmään.
+Forkkaa tämä tehtäväpohja omaan GitHub-repositorioosi ja tallenna ratkaisusi omaan forkkiisi. Repositorio saa olla julkinen.

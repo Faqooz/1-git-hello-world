@@ -136,6 +136,4 @@ ChatGPT 3.5 language model and GitHub copilot AI assistant has been used to impl
 
 ## Saving your solution
 
-Make your own copy of this exercise template (fork or copy) and save your solution also in a **private GitHub repository under your own GitHub account**. Do not publish your solution in a public repository.
-
-Submit your solution to the submission system announced by your teacher.
+Fork this exercise template into your own GitHub repository and save your solution in your own fork. The repository may be public.
