@@ -1,33 +1,31 @@
-> [!NOTE]  
+> [!NOTE]
 > The English translation for this exercise can be found in [this file](./readme.en.md).
 
 # Git "Hello world"
 
-Tässä tehtävässä opit perusasioita Git-versionhallinnasta. Tehtävän edellytyksenä on, että olet [asentanut Git-työkalun koneellesi (git-scm.com)](https://git-scm.com/) ja tehnyt [tarvittavat asetukset Gitin käyttämiseksi(GitHub)](https://docs.github.com/en/get-started/quickstart/set-up-git). Tarvitset myös [GitHub](https://github.com/)-tunnuksen<sup>1</sup>, jonka voit luoda osoitteessa https://github.com/.
+![Git-versiohistoria: commitit ketjuna, kehityshaara ja yhdistäminen](img/chapters/git.svg)
 
-<sup>1</sup> <em>Jos käytät GitHubia jo valmiiksi työsi puolesta, voi olla tietoturvasyistä kannattavaa luoda erillinen tunnus opintoja varten.</em>
+Tässä tehtävässä opit Git-versionhallinnan perusasiat. Tehtävän edellytyksenä on, että olet [asentanut Git-työkalun koneellesi (git-scm.com)](https://git-scm.com/) ja tehnyt [tarvittavat asetukset Gitin käyttämiseksi (GitHub)](https://docs.github.com/en/get-started/quickstart/set-up-git). Tarvitset myös [GitHub](https://github.com/)-tunnuksen, jonka voit luoda osoitteessa https://github.com/.
 
-🔐 *Sinun ei tarvitse antaa omaa nimeäsi GitHub-rekisteröitymisessä. Sähköpostiosoitteena voit käyttää oppilaitoksen sähköpostia ja voit piilottaa sen muilta käyttäjiltä seuraamalla [GitHubin ohjeita](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address#setting-your-commit-email-address-on-github).*
+🔐 *Jos käytät GitHubia jo työsi puolesta, voi olla tietoturvasyistä kannattavaa luoda erillinen tunnus opintoja varten. Omaa nimeäsi ei tarvitse antaa rekisteröitymisessä. Sähköpostiosoitteena voit käyttää oppilaitoksen sähköpostia ja piilottaa sen muilta käyttäjiltä [GitHubin ohjeiden](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address#setting-your-commit-email-address-on-github) mukaisesti.*
 
-⛔ *Jos et missään tapauksessa halua käyttää kurssilla GitHubia, sovi opettajasi kanssa mahdollisesta vaihtoehtoisesta git-palvelusta tai tehtävien palautustavasta.*
+⛔ *Jos et missään tapauksessa halua käyttää kurssilla GitHubia, sovi opettajasi kanssa vaihtoehtoisesta git-palvelusta.*
+
+**Tämän luvun suorittaminen.** Tämä luku tehdään omalla koneellasi ja GitHubissa. Kurssijärjestelmään (https://jtjuslin.kapsi.fi/java) ei palauteta mitään, eikä luvusta saa pisteitä. Kurssin muut luvut palautetaan kurssijärjestelmään, ja niiden tehtäväpohjat ovat samassa GitHub-organisaatiossa: https://github.com/o2-syksy2026. Niissä täydet pisteet saa, kun testit menevät läpi myös **julkisesta** GitHub-repositoriostasi haetulle koodille. Repositorio saa jäädä julkiseksi. Ohjeet ovat kunkin luvun kohdassa "Palauttaminen ja pisteet".
 
 
 ## Git-komentorivityökalu
 
-Tehtävänanto keskittyy Git-komentorivityökaluun. Itse komentorivin osalta oletamme [komentorivin peruskäytön](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line) olevan ennalta tuttua. Peruskäytöksi laskemme mm. komentorivin avaamisen ja eri hakemistojen välillä siirtymisen. Mikäli komentorivi aiheuttaa ongelmia, voit ratkaista tämän ja seuraavat tehtävät myös graafisella työkalulla, kuten VS Code tai GitHub desktop.
+Tehtävänanto keskittyy Git-komentorivityökaluun, ja oletamme [komentorivin peruskäytön](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line), kuten komentorivin avaamisen ja hakemistojen välillä siirtymisen, olevan tuttua. Voit ratkaista tämän ja seuraavat tehtävät myös graafisella työkalulla, kuten VS Codella tai GitHub Desktopilla, mutta joudut silloin etsimään vastaavat toiminnot itsenäisesti.
 
 * [Command line crash course (developer.mozilla.org)](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line)
 * [Using Git source control in VS Code (code.visualstudio.com)](https://code.visualstudio.com/docs/sourcecontrol/overview)
 * [GitHub Desktop (desktop.github.com)](https://desktop.github.com/)
 
-💡 *Kurssin ohjeistuksessa oletetaan, että käytät komentorivityökalua, joten joudut etsimään vastaavat toiminnot omasta työkalustasi itsenäisesti.*
-
 
 ## Gitin perusteet
 
-Git on erittäin monipuolinen työkalu ja sen käyttämiseksi löytyy valtava määrä erilaisia ohjeita ja tutoriaaleja. Tutoriaalien näkökulma ja sisältö vaihtelee melko suuresti jo Gitin perusteiden osalta: osassa luodaan itse oma repositorio, osassa kloonataan valmis repositorio. Osassa luodaan ja yhdistellään kehityshaaroja, kun taas toisissa työskennellään vain yhdessä kehityshaarassa.
-
-Tässä tehtävässä tarvitset vain Gitin komentoja `clone`, `add`, `commit` ja `push`. Kaikki syventävämmät aiheet, esimerkiksi kehityshaaroihin (branch) liittyen, voit jättää ainakin toistaiseksi väliin. Tämän tehtävän suorittamiseksi suosittelemme mm. seuraavia lähteitä:
+Gitin käyttöön löytyy valtavasti ohjeita, joiden näkökulma vaihtelee: osassa luodaan oma repositorio, osassa kloonataan valmis, ja osassa käytetään kehityshaaroja. Tässä tehtävässä tarvitset vain komentoja `clone`, `add`, `commit` ja `push`, joten syventävät aiheet, kuten kehityshaarat (branch), voit jättää toistaiseksi väliin. Suosittelemme seuraavia lähteitä:
 
 * [What is version control? (Atlassian)](https://www.atlassian.com/git/tutorials/what-is-version-control). Katso myös [video](https://youtu.be/xQujH0ElTUg).
 * [What is Git (Atlassian)](https://www.atlassian.com/git/tutorials/what-is-git)
@@ -38,52 +36,38 @@ Tässä tehtävässä tarvitset vain Gitin komentoja `clone`, `add`, `commit` ja
 
 ## Tehtävä
 
-Tässä tehtävässä tarkoituksesi on ladata tämä Git-repositorio omalle koneellesi, tehdä siihen pieni muutos, ja päivittää tekemäsi muutos takaisin etärepositorioon.
+Tehtävässä forkkaat tämän repositorion itsellesi, kloonaat sen koneellesi, teet siihen pienen muutoksen ja viet muutoksen takaisin GitHubiin.
 
+### Repositorion forkkaaminen ja kloonaaminen
 
-### Repositorion kloonaaminen
-
-Forkkaa ensin tämä repositorio omaan GitHub-repositorioosi GitHubin **Fork**-painikkeella ja kloonaa vasta sitten oma forkkisi omalle koneellesi:
+Forkkaa ensin tämä repositorio omaan GitHub-repositorioosi GitHubin **Fork**-painikkeella ja kloonaa vasta sitten oma forkkisi koneellesi:
 
 ```sh
-git clone https://github.com/<oma-github-tunnus>/<repositorion-nimi>.git
+git clone https://github.com/<oma-github-tunnuksesi>/1-git-hello-world.git
 ```
 
-Kun olet kloonannut repositorion tietokoneellesi valitsemaasi hakemistoon, avaa kloonattu hakemisto koodieditorillasi.
+Avaa kloonattu hakemisto koodieditorissasi. Tämä repositorio ei sisällä Java-projektia vaan yksittäisen tekstitiedoston, joten se näyttää editorissa erilaiselta kuin "tavalliset" projektit.
 
-💡 *Git _kloonaa_ repositorion alihakemistoon, jonka nimi on oletuksena sama kuin repositorion nimi. Seuraavien vaiheiden komennot syötetään repositorion hakemiston sisällä. [Siirry siis kloonattuun hakemistoon komentorivilläsi](https://en.wikipedia.org/wiki/Cd_(command)).*
-
-💡 *Tämä repositorio ei sisällä Java-projektia vaan pelkän yksittäisen tekstitiedoston. Se näyttää siis editorissasi mahdollisesti hieman erilaiselta kuin "tavalliset" projektit.*
-
+💡 *Git kloonaa repositorion alihakemistoon, jonka nimi on oletuksena sama kuin repositorion nimi. Seuraavat komennot annetaan tämän hakemiston sisällä, joten [siirry siihen komentorivillä](https://en.wikipedia.org/wiki/Cd_(command)).*
 
 ### Tiedoston muokkaaminen
 
-Avaa repositoriossa valmiiksi oleva tiedosto [hello.txt](./hello.txt) koodieditorillasi. Lisää tiedostoon teksti `hello world` ja tallenna tiedosto.
-
-Käytä `git status` -komentoa ja tarkastele sen tulostetta. Näkyykö `hello.txt` tulosteessa? Mitä siitä kerrotaan?
-
+Avaa tiedosto [hello.txt](./hello.txt) koodieditorillasi, lisää siihen teksti `hello world` ja tallenna tiedosto. Anna komento `git status` ja tarkastele sen tulostetta. Näkyykö `hello.txt` tulosteessa? Mitä siitä kerrotaan?
 
 ### Muutoksen lisääminen
 
-`hello.txt`-tiedostoa on nyt muokattu paikallisesti ja seuraavaksi tiedoston viimeisin sisältö halutaan lisätä myös versionhallintaan. Lisääminen tapahtuu kahdessa vaiheessa, jotka on kuvattu selkeästi dokumentissa [Git add (Atlassian)](https://www.atlassian.com/git/tutorials/saving-changes).
-
-Kun suoritat `git status`-komennon, se kertoo, että tiedosto on muuttunut. Git myös näyttää vinkin komennosta, jolla saat lisättyä muutoksen versionhallintaan:
+Muutos lisätään versionhallintaan kahdessa vaiheessa, jotka on kuvattu dokumentissa [Git add (Atlassian)](https://www.atlassian.com/git/tutorials/saving-changes). `git status` kertoo, että tiedosto on muuttunut, ja näyttää vinkin komennosta, jolla muutos lisätään:
 
 ```sh
 git status
 git *** hello.txt    # korvaa *** status-komennon antamalla komennolla
 ```
 
-Yhdessä commitissa voidaan muuttaa useampia tiedostoja, joten voisit jatkaa tiedostojen lisäämistä samaan committiin. Tällä kertaa meille riittää tämä yksi tiedosto.
+Yhteen commitiin voi lisätä useita tiedostoja, mutta tällä kertaa riittää tämä yksi.
 
+### Commitin luonti
 
-### "Commitin" luonti
-
-Kun suoritat `git status`-komennon, Git näyttää, mitkä tiedostot ovat valmiina commitoitavaksi:
-
-```sh
-git status
-```
+`git status` näyttää nyt, mitkä tiedostot ovat valmiina commitoitavaksi:
 
 ```
 Changes to be committed:
@@ -91,24 +75,17 @@ Changes to be committed:
         modified:   hello.txt
 ```
 
-Käytä seuraavaksi `git commit` -komentoa, joka luo uuden commitin, jossa lisäämäsi muutos on mukana:
+Luo uusi commit, jossa muutos on mukana:
 
 ```sh
 git commit -m "Hello world lisätty tiedostoon"   # korvaa viesti vapaasti valitsemallasi tekstillä
 ```
 
-💡 *Komennossa `-m` tarkoittaa viestiä, jolla tämä muutos tunnistetaan versiohistoriassa myöhemmin (commit **m**essage).*
-
+💡 *`-m` tarkoittaa viestiä (commit **m**essage), jolla muutos tunnistetaan myöhemmin versiohistoriassa.*
 
 ### Commitin vienti etärepositorioon
 
-Aja commitin luonnin jälkeen taas tuttu komento:
-
-```sh
-git status
-```
-
-Nyt Git kertoo, että paikallinen kopiosi repositoriosta on yhden commitin edellä etärepositoriota:
+Anna taas komento `git status`. Git kertoo, että paikallinen kopiosi on yhden commitin edellä etärepositoriota:
 
 ```
 On branch master
@@ -116,28 +93,20 @@ Your branch is ahead of 'origin/master' by 1 commit.
   (use "git ****" to publish your local commits)
 ```
 
-Noudata Gitin antamaa ohjetta ja anna komento, jolla julkaiset paikalliset muutoksesi etärepositorioon:
+Julkaise muutoksesi etärepositorioon Gitin antaman ohjeen mukaisesti:
 
 ```sh
 git ****    # korvaa **** edellisestä komennosta saamallasi komennolla
 ```
 
-Käy lopuksi tarkastamassa etärepositoriosi sisältö. Varmista, että `hello.txt` on päivittynyt.
+Tarkista lopuksi GitHubista, että `hello.txt` on päivittynyt forkissasi.
 
 
 ## .gitignore ja .gitattributes
 
-Tämä tehtäväpohja sisältää tehtävänannon sekä muokattavan tiedoston lisäksi pisteellä alkavia "piilotiedostoja". Jos tiedostot eivät näy koodieditorisi hakemistorakenteessa, voit joutua muuttamaan editorisi asetuksia.
-
-[`.gitignore`-tiedostossa](./.gitignore) voidaan määritellä, mitkä tiedostot jätetään [versionhallinnan ulkopuolelle](https://git-scm.com/docs/gitignore), kun taas [`.gitattributes`-tiedostossa](./.gitattributes) on määritetty kaikille tekstitiedostoille [yhtenäiset rivinvaihtomerkit](https://docs.github.com/en/get-started/getting-started-with-git/configuring-git-to-handle-line-endings). Voit muokata näitä tiedostoja tarpeidesi mukaan kurssin tehtäviä suorittaessasi.
+Tehtäväpohjassa on lisäksi pisteellä alkavia "piilotiedostoja". Jos ne eivät näy editorissasi, voit joutua muuttamaan editorin asetuksia. [.gitignore](./.gitignore)-tiedostossa määritellään, mitkä tiedostot jätetään [versionhallinnan ulkopuolelle](https://git-scm.com/docs/gitignore), ja [.gitattributes](./.gitattributes)-tiedostossa määritetään tekstitiedostoille [yhtenäiset rivinvaihtomerkit](https://docs.github.com/en/get-started/getting-started-with-git/configuring-git-to-handle-line-endings). Voit muokata näitä tiedostoja tarpeen mukaan.
 
 
 ## Lisenssi ja tekijät
 
-Tämän tehtävän on kehittänyt Teemu Havulinna ja se on lisensoitu [Creative Commons BY-NC-SA -lisenssillä](https://creativecommons.org/licenses/by-nc-sa/4.0/).
-
-Tehtävän toteutuksessa on hyödynnetty ChatGPT 3.5 -kielimallia sekä GitHub copilot-tekoälyavustinta.
-
-## Ratkaisun tallentaminen
-
-Forkkaa tämä tehtäväpohja omaan GitHub-repositorioosi ja tallenna ratkaisusi omaan forkkiisi. Repositorio saa olla julkinen.
+Tämän tehtävän ovat kehittäneet Teemu Havulinna ja Jukka Juslin, ja se on lisensoitu [Creative Commons BY-NC-SA -lisenssillä](https://creativecommons.org/licenses/by-nc-sa/4.0/). Tehtävänannon, lähdekoodien ja testien toteutuksessa on hyödynnetty ChatGPT 3.5 -kielimallia sekä GitHub Copilot -tekoälyavustinta.

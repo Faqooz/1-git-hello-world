@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 170" role="img" aria-labelledby="t">
+  <title id="t">Git-versiohistoria: commitit ketjuna, kehityshaara ja yhdistäminen</title>
+  <rect x="1" y="1" width="318" height="168" rx="14" fill="#fbf7f0" stroke="#dcd8ce"/>
+  <!-- kehityshaara -->
+  <path d="M110 112 C130 112 130 62 150 62 L210 62 C230 62 230 112 250 112" fill="none" stroke="#2d6a4f" stroke-width="5" stroke-linecap="round"/>
+  <!-- päähaara -->
+  <line x1="40" y1="112" x2="290" y2="112" stroke="#b74a26" stroke-width="5" stroke-linecap="round"/>
+  <g stroke="#fffdf9" stroke-width="3">
+    <circle cx="50" cy="112" r="12" fill="#b74a26"/>
+    <circle cx="110" cy="112" r="12" fill="#b74a26"/>
+    <circle cx="180" cy="112" r="12" fill="#b74a26"/>
+    <circle cx="250" cy="112" r="12" fill="#b74a26"/>
+    <circle cx="160" cy="62" r="11" fill="#2d6a4f"/>
+    <circle cx="205" cy="62" r="11" fill="#2d6a4f"/>
+  </g>
+  <circle cx="290" cy="112" r="14" fill="#fffdf9" stroke="#b74a26" stroke-width="4"/>
+  <circle cx="290" cy="112" r="5" fill="#b74a26"/>
+  <g font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="12" fill="#5f6b70">
+    <text x="40" y="146">7b9f1e</text>
+    <text x="160" y="146">a3d8e7</text>
+    <text x="262" y="146">HEAD</text>
+    <text x="218" y="52" fill="#2d6a4f">feature</text>
+  </g>
+  <g font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="13" fill="#1c2327">
+    <rect x="18" y="18" width="128" height="26" rx="6" fill="#1c2327"/>
+    <text x="28" y="36" fill="#f5f3ee">$ git commit</text>
+  </g>
+</svg>

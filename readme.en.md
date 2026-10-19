@@ -1,87 +1,70 @@
 # Git "Hello world"
 
-In this exercise you learn the basics of Git version control. Before starting the exercise, make sure you have [installed the Git tool for your computer](https://git-scm.com/) and [done the required setup for Git](https://docs.github.com/en/get-started/quickstart/set-up-git). You will also need a [GitHub](https://github.com/) account<sup>1</sup> which you can create at <https://github.com/>.
+![Git version history: commits in a chain, a branch and a merge](img/chapters/git.svg)
 
-<sup>1</sup> <em>If you already use GitHub at work, it might be a good idea (e.g. due to security reasons) to create a separate account for studies.</em>
+In this exercise, you learn the basics of Git version control. Before starting, [install Git on your computer (git-scm.com)](https://git-scm.com/) and [configure it (GitHub)](https://docs.github.com/en/get-started/quickstart/set-up-git). You also need a [GitHub](https://github.com/) account, which you can create at https://github.com/.
 
-🔐 *You don't have to give your name while registering your account in GitHub. You can use the school's email and you can hide it from other users by following the [GitHub's instructions](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address#setting-your-commit-email-address-on-github).*
+🔐 *If you already use GitHub for work, it may be wise to create a separate account for your studies. You do not need to give your own name when registering. You can use your school email address and hide it from other users by following [GitHub's instructions](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address#setting-your-commit-email-address-on-github).*
 
-<!--
-⛔ *If you absolutely do not want to use GitHub in the course, discuss with your teacher about a possible alternative git service or method for submitting assignments.*
--->
+⛔ *If you do not want to use GitHub on this course under any circumstances, agree on an alternative git service with your teacher.*
+
+**Completing this chapter.** This chapter is done on your own computer and on GitHub. Nothing is submitted to the course system (https://jtjuslin.kapsi.fi/java), and the chapter gives no points. The other chapters of the course are submitted to the course system, and their exercise templates are in the same GitHub organization: https://github.com/o2-syksy2026. In them, you get full points when the tests also pass for code fetched from your **public** GitHub repository. The repository may remain public. The instructions are in the "Submitting and points" section of each chapter.
+
 
 ## Git command-line tool
 
-The exercise description focuses on the Git command-line tool. Regarding the command-line itself, it is assumed that you are familiar with the [basics](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line). The basic knowledge includes e.g. opening the command-line window, and switching between different directories. If command-line causes problems, you can also solve this and the next exercises using a graphical user interface, such as VS code or GitHub desktop.
-
+The instructions focus on Git's command-line tool, and we assume that [basic command-line usage](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line), such as opening the command line and moving between directories, is familiar. You can also solve this and the following exercises with a graphical tool, such as VS Code or GitHub Desktop, but you then need to find the corresponding functions on your own.
 
 * [Command line crash course (developer.mozilla.org)](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line)
 * [Using Git source control in VS Code (code.visualstudio.com)](https://code.visualstudio.com/docs/sourcecontrol/overview)
 * [GitHub Desktop (desktop.github.com)](https://desktop.github.com/)
 
-💡 *The course instructions assume that you will use a command-line tool, so you will need to independently find the corresponding functions in your own tool.*
 
 ## Git basics
 
-Git is a very versatile tool, and there are a huge number of different guides and tutorials available for using it. The perspective and content of the tutorials vary quite a bit even for the basics of Git: some create their own repository, while others clone an existing repository. Some create and merge branches, while others work only in a single branch.
+There are countless Git tutorials with different approaches: some create a new repository, some clone an existing one, and some use branches. In this exercise, you only need the commands `clone`, `add`, `commit` and `push`, so you can skip advanced topics, such as branches, for now. We recommend the following sources:
 
-In this exercise you'll only need the `clone`, `add`, `commit` and `push` command. You can skip all more advanced topics, such as those related to branches, at least for now. For completing this task, we recommend the following sources::
-
-* [What is version control? (Atlassian)](https://www.atlassian.com/git/tutorials/what-is-version-control). Also, check the [video](https://youtu.be/xQujH0ElTUg).
+* [What is version control? (Atlassian)](https://www.atlassian.com/git/tutorials/what-is-version-control). See also the [video](https://youtu.be/xQujH0ElTUg).
 * [What is Git (Atlassian)](https://www.atlassian.com/git/tutorials/what-is-git)
 * [Install Git (Atlassian)](https://www.atlassian.com/git/tutorials/install-git)
 * [Git add (Atlassian)](https://www.atlassian.com/git/tutorials/saving-changes)
 * [Git Cheat Sheet, pdf (GitHub)](https://education.github.com/git-cheat-sheet-education.pdf)
 
+
 ## Exercise
 
-In this task, your goal is to download this Git repository to your computer, make a small change to it, and update your change back to the remote repository.
+In this exercise, you fork this repository, clone it to your computer, make a small change and push the change back to GitHub.
 
-### Cloning a repository
-
-Open the Git Bash application. In Git Bash, like in other command-line tools, commands operate based on the active directory in the application. By default, the active directory is your home directory (`C:\Users\<yourusername>\` on Windows). The `pwd` command will display the current directory you are in (type in the command and press Enter). We can use the [cd](https://en.wikipedia.org/wiki/Cd_(command)) command to switch to other directories. But, we can have our exercise repository directories in the home directory.
+### Forking and cloning the repository
 
 First fork this repository into your own GitHub repository with GitHub's **Fork** button, and only then clone your fork to your computer:
 
 ```sh
-git clone https://github.com/<your-github-username>/<repository-name>.git
+git clone https://github.com/<your-github-username>/1-git-hello-world.git
 ```
 
-The address can also be found in GitHub by clicking the green "Code" button and copying the address from the dialog.
+Open the cloned directory in your code editor. This repository does not contain a Java project but a single text file, so it looks different in your editor than "regular" projects.
 
-Once you have cloned the repository to your computer in your chosen directory (the home directory, unless you switch to another directory in Git Bash), open the cloned directory with your code editor. Also, keep the Git Bash open for executing git commands.
+💡 *Git clones the repository into a directory named after the repository by default. The following commands are run inside that directory, so [switch to it on the command line](https://en.wikipedia.org/wiki/Cd_(command)).*
 
-💡 *Git _clones_ the repository into a directory which name is by default the same as the name of the repository. The commands in the upcoming sections must be ran inside the directory. So, [switch to the cloned directory using the command-line](https://en.wikipedia.org/wiki/Cd_(command)).*
+### Editing the file
 
-💡 *This repository doesn't contain a Java project, but instead a single text file. It will probably look a bit different in your editor compared to "regular" projects.*
+Open the file [hello.txt](./hello.txt) in your code editor, add the text `hello world` and save the file. Run `git status` and look at its output. Is `hello.txt` shown in the output? What does it say about it?
 
-### Editing files
+### Adding the change
 
-Open the [hello.txt](./hello.txt) file which is already inside your repository with an editor. Add the text `hello world` to the file and save it.
-
-Use the `git status` command and inspect its output. Do you see the `hello.txt` file in the output. What does it say about the file?
-
-### Adding changes
-
-The `hello.txt` file is you edited locally and we want to add the latest changes of the file to the version control. This happens in two steps, which are clearly described in the document [Git add (Atlassian)](https://www.atlassian.com/git/tutorials/saving-changes).
-
-When you run the `git status` command, it will tell you that the file has changed. Git also gives a hint of a command you can use to add the changes to the version ctonrol:
+A change is added to version control in two steps, which are described in [Git add (Atlassian)](https://www.atlassian.com/git/tutorials/saving-changes). `git status` tells that the file has changed and shows a hint of the command that adds the change:
 
 ```sh
 git status
-git *** hello.txt    # replace the *** with the command provided by the git status command
+git *** hello.txt    # replace *** with the command given by status
 ```
 
-We can change multiple files in a single commit, so we could keep on adding files to the same commit. This time, just having this single file is enough.
-
+One commit can contain several files, but this one file is enough this time.
 
 ### Creating a commit
 
-When we run the `git status` command, Git will show us which files are ready to be commited:
-
-```sh
-git status
-```
+`git status` now shows which files are ready to be committed:
 
 ```
 Changes to be committed:
@@ -89,24 +72,17 @@ Changes to be committed:
         modified:   hello.txt
 ```
 
-Use the `git commit` command next, which will create a new commit containing the change we made:
+Create a new commit that contains the change:
 
 ```sh
-git commit -m "Hello world added to a file"   # replace the commit message of your choice
+git commit -m "Added hello world to the file"   # replace the message with your own text
 ```
 
-💡 *In the command, the `-m` refers to check the message we use to identify this change in version control later (commit **m**essage).*
+💡 *`-m` means the commit **m**essage that identifies the change in the version history later.*
 
+### Pushing the commit to the remote repository
 
-### Transfering the commits to a remote repository
-
-After creating the commit, run the good old command:
-
-```sh
-git status
-```
-
-Now, Git tells us that the local copy of the repository is one commit ahead of the remote repository:
+Run `git status` again. Git tells that your local copy is one commit ahead of the remote repository:
 
 ```
 On branch master
@@ -114,26 +90,20 @@ Your branch is ahead of 'origin/master' by 1 commit.
   (use "git ****" to publish your local commits)
 ```
 
-Follow the Git's instructions and run the command, which transfers the local changes to the remote repository:
+Publish your changes to the remote repository as Git suggests:
 
 ```sh
-git ****    # replace the **** with the command provided by the git status command
+git ****    # replace **** with the command you got from the previous command
 ```
 
-Finally, check the changes in GitHub. Make sure that the contents of the `hello.txt` file has been updated.
+Finally, check on GitHub that `hello.txt` has been updated in your fork.
+
 
 ## .gitignore and .gitattributes
 
-This exercise template includes the assignment and an editable file, as well as "hidden files" that start with a dot. If the files are not visible in the directory structure of your code editor, you may need to change your editor's settings.
+The template also contains "hidden" files whose names start with a dot. If you do not see them in your editor, you may need to change the editor's settings. The [.gitignore](./.gitignore) file defines which files are [left out of version control](https://git-scm.com/docs/gitignore), and the [.gitattributes](./.gitattributes) file defines [consistent line endings](https://docs.github.com/en/get-started/getting-started-with-git/configuring-git-to-handle-line-endings) for text files. You can edit these files as needed.
 
-In the [`.gitignore` file](./.gitignore) we can define, which files are [left outside the version control](https://git-scm.com/docs/gitignore), where as in the [`.gitattributes` file](./.gitattributes) we can define [common line ending characters](https://docs.github.com/en/get-started/getting-started-with-git/configuring-git-to-handle-line-endings) for all text files. You can modify these files to suit your needs in the exercises.
 
 ## License and authors
 
-This exercise is made by Teemu Havulinna and translated to English by Kalle Ilves and it is licensed under a [Creative Commons BY-NC-SA license](https://creativecommons.org/licenses/by-nc-sa/4.0/).
-
-ChatGPT 3.5 language model and GitHub copilot AI assistant has been used to implement the exercise.
-
-## Saving your solution
-
-Fork this exercise template into your own GitHub repository and save your solution in your own fork. The repository may be public.
+This exercise was developed by Teemu Havulinna and Jukka Juslin, and it is licensed under the [Creative Commons BY-NC-SA license](https://creativecommons.org/licenses/by-nc-sa/4.0/). ChatGPT 3.5 and GitHub Copilot were used in creating the assignment, the source code and the tests.
